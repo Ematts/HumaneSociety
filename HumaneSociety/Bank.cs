@@ -8,7 +8,7 @@ namespace HumaneSociety
 {
     class Bank
     {
-        double accountBalance;
+       public double accountBalance;
     }
 
 }

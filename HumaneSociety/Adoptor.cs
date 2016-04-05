@@ -10,8 +10,8 @@ namespace HumaneSociety
     {
         string firstName;
         string lastName;
-       public int idNumber;
-        List<Adoptor> adoptionList = new List<Adoptor>();
+        public int idNumber;
+        public List<Animal> adoptionList = new List<Animal>();
 
         public Adoptor(string FirstName, string LastName, int IDNumber)
         {

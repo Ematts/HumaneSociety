@@ -8,7 +8,7 @@ namespace HumaneSociety
 {
     class Cats : Animal
     {
-        ///Cat variables
+        
 
         string catBreed;
         double catSize;

@@ -190,6 +190,33 @@ namespace HumaneSociety
             foreach (Adoptor adoptor in adoptorList)
             {
                 if (id == adoptor.idNumber)
+                {
+                    Console.WriteLine("Enter name of animal");
+                    string petName = Console.ReadLine(); 
+                        foreach (Animal animal in animalList)
+                        {
+                            if (petName == animal.animalName)
+                                {
+                                    animalList.Remove(animal);
+                                    bank.accountBalance += animal.adoptionPrice;
+                                    adoptor.adoptionList.Add(animal);
+                                    Console.WriteLine("Adoption complete. " + animal.animalName + " has been removed from the system. \n  Press 1 to return to menu, press 2 to exit program");
+                                    int menuReturn = int.Parse(Console.ReadLine());
+                            
+                                        if (menuReturn == 1)
+
+                                         {
+                                             menu();
+                                         }
+
+                                }
+                            else
+                                {
+                                    
+
+                                }
+                        }
+                }
 
             }
 
