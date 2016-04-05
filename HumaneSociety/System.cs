@@ -212,7 +212,9 @@ namespace HumaneSociety
                                 }
                             else
                                 {
-                                    
+                            Console.WriteLine("");
+                                 
+                              
 
                                 }
                         }
