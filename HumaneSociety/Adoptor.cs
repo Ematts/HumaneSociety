@@ -10,14 +10,14 @@ namespace HumaneSociety
     {
         string firstName;
         string lastName;
-        double wallet;
+       public int idNumber;
         List<Adoptor> adoptionList = new List<Adoptor>();
 
-        public Adoptor(string FirstName, string LastName, double Wallet)
+        public Adoptor(string FirstName, string LastName, int IDNumber)
         {
             firstName = FirstName;
             lastName = LastName;
-            wallet = Wallet;
+            idNumber = IDNumber;
         }
 
     }

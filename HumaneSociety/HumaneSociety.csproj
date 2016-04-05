@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Adoptor.cs" />
     <Compile Include="Animal.cs" />
+    <Compile Include="Bank.cs" />
     <Compile Include="Cats.cs" />
     <Compile Include="Dogs.cs" />
     <Compile Include="Program.cs" />
