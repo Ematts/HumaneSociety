@@ -17,38 +17,39 @@ namespace HumaneSociety
 
         public void menu()
         {
-           Console.WriteLine("Press 1 if you would like to enter a new animal, press 2 if you would like to add an adoptor profile, press 3 if you would like to perform an adoption");
-           int menuChoice = int.Parse(Console.ReadLine());
-           if (menuChoice == 1)
-                {
+            Console.WriteLine("Press 1 if you would like to enter a new animal, press 2 if you would like to add an adoptor profile, press 3 if you would like to perform an adoption");
+            int menuChoice = int.Parse(Console.ReadLine());
+            if (menuChoice == 1)
+            {
 
                 addAnimal();
 
-                }
+            }
 
             else if (menuChoice == 2)
 
-                {
+            {
+
 
                 addAdoptor();
 
-                }
+            }
 
             else if (menuChoice == 3)
 
-                {
+            {
 
                 performAdoption();
 
-                }
+            }
 
-           else
+            else
 
-                {
+            {
 
                 Console.WriteLine("yo");
 
-                }
+            }
 
 
         }
@@ -169,7 +170,6 @@ namespace HumaneSociety
             string lastname = Console.ReadLine();
             Console.WriteLine("Enter adoptors's ID number");
             int idNumber = int.Parse(Console.ReadLine());
-
             Adoptor adoptor = new Adoptor(firstname, lastname, idNumber);
             adoptorList.Add(adoptor);
             Console.WriteLine("press 1 to return to menu, press 2 to exit program");
@@ -183,7 +183,27 @@ namespace HumaneSociety
 
         }
 
-        public void performAdoption()
+        public Animal remove()
+        {
+            Console.WriteLine("Enter name of animal");
+            string animalName = Console.ReadLine();
+            foreach (Animal animal in animalList)
+            {
+                if (animalName == animal.animalName)
+                {
+                    animalList.Remove(animal);
+                   
+
+                    return animal;
+                }
+
+            }
+            Console.WriteLine("No such animal was found in the system. Press 1 to return to menu, press 2 to exit program");
+            return null;
+
+        }
+
+        public Adoptor checkAdoptorID()
         {
             Console.WriteLine("Enter adoptor's ID number");
             int id = int.Parse(Console.ReadLine());
@@ -191,50 +211,63 @@ namespace HumaneSociety
             {
                 if (id == adoptor.idNumber)
                 {
-                    Console.WriteLine("Enter name of animal");
-                    string petName = Console.ReadLine(); 
-                        foreach (Animal animal in animalList)
-                        {
-                            if (petName == animal.animalName)
-                                {
-                                    animalList.Remove(animal);
-                                    bank.accountBalance += animal.adoptionPrice;
-                                    adoptor.adoptionList.Add(animal);
-                                    Console.WriteLine("Adoption complete. " + animal.animalName + " has been removed from the system. \n  Press 1 to return to menu, press 2 to exit program");
-                                    int menuReturn = int.Parse(Console.ReadLine());
-                            
-                                        if (menuReturn == 1)
-
-                                         {
-                                             menu();
-                                         }
-
-                                }
-                            else
-                                {
-                            Console.WriteLine("");
-                                 
-                              
-
-                                }
-                        }
+                    return adoptor;
                 }
 
             }
 
-            {
 
-            }
+            return null;
         }
-    
+
+        public int performAdoption()
+        {
+            Adoptor adoptor = checkAdoptorID();
+            if (adoptor == null)
+            {
+                Console.WriteLine("No such ID number was found in the system. Press 1 to return to menu, press 2 to exit program");
+                int menuReturnID = int.Parse(Console.ReadLine());
+
+                if (menuReturnID == 1)
+
+                {
+                    menu();
+                }
+                return 0;
+            }
+            Animal animal = remove();
+            
+            bank.accountBalance += animal.adoptionPrice;
+            adoptor.adoptionList.Add(animal);
+            Console.WriteLine("Adoption complete. " + animal.animalName + " has been removed from the system. \n The shelter collected $" + animal.adoptionPrice + " bringing the account balance to $" + bank.accountBalance + ". \n  1 to return to menu, press 2 to exit program");
+            int menuReturn = int.Parse(Console.ReadLine());
+
+            if (menuReturn == 1)
+
+            {
+                menu();
+            }
+           return 0;
+        }
     }
+}            
 
-}
-
-    
-
-    
-    
+            
+        
 
     
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
 

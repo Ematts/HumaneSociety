@@ -37,21 +37,18 @@ namespace HumaneSociety
 
         public string GetAnimalName()
         {
-            Console.WriteLine("Enter Animal's Name:");
-            animalName = Console.ReadLine();
+           
             return animalName;
         }
-        public int GetAnimalAge()
+        public int getAnimalAge()
         {
-            Console.WriteLine("Enter age of Animal:");
-            animalAge = int.Parse(Console.ReadLine());
+            
             return animalAge;
         }
 
-        public double SetAdoptionPrice()
+        public double getAdoptionPrice()
         {
-            Console.WriteLine("Enter Adoption Price:");
-            adoptionPrice = double.Parse(Console.ReadLine());
+            
             return adoptionPrice;
         }
     }
