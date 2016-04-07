@@ -12,6 +12,7 @@ namespace HumaneSociety
         List<Cats> catList = new List<Cats>();
         List<Animal> animalList = new List<Animal>();
         List<Adoptor> adoptorList = new List<Adoptor>();
+        List<Animal> adoptedAnimals = new List<Animal>();
         Bank bank = new Bank();
 
 
@@ -192,6 +193,7 @@ namespace HumaneSociety
                 if (animalName == animal.animalName)
                 {
                     animalList.Remove(animal);
+                    adoptedAnimals.Add(animal);
                    
 
                     return animal;
